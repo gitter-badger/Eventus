@@ -5,10 +5,11 @@ namespace Eventus.Samples.Infrastructure.Factories
 {
     public class StorageProviderInitialiser
     {
-        public static Task InitAsync()
+        public static Task InitAsync(string provider = "")
         {
-            var provider = StorageProviderFactory.FromString(ConfigurationManager.AppSettings[Constants.Provider]);
-            return provider.InitAsync();
+            var providerName = string.IsNullOrWhiteSpace(provider) ? ConfigurationManager.AppSettings[Constants.Provider].ToLowerInvariant() : provider;
+            var p = StorageProviderFactory.FromString(providerName);
+            return p.InitAsync();
         }
     }
 }

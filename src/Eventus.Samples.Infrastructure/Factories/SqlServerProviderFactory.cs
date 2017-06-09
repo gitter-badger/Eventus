@@ -11,7 +11,7 @@ namespace Eventus.Samples.Infrastructure.Factories
     {
         private class SqlServerProviderFactory : StorageProviderFactory
         {
-            private readonly string _connectionString = ConfigurationManager.ConnectionStrings["Eventus"].ToString();
+            private readonly string _connectionString = ConfigurationManager.ConnectionStrings["Eventus"] == null ? "Server=(localdb)\\MSSQLLocalDB;Initial Catalog=Eventus;Integrated Security=True" : ConfigurationManager.ConnectionStrings["Eventus"].ToString();
 
             public SqlServerProviderFactory(int value, string displayName) : base(value, displayName)
             {

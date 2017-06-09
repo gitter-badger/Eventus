@@ -1,17 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Eventus.Cleanup;
 using Eventus.Logging;
 using Eventus.Samples.Core;
-using Eventus.Samples.Core.Domain;
 using Eventus.Samples.Core.EventHandlers;
 using Eventus.Samples.Core.ReadModel;
-using Eventus.Samples.Infrastructure.Config;
 using Eventus.Storage;
-using AggregateConfig = Eventus.Samples.Infrastructure.Config.AggregateConfig;
 
 namespace Eventus.Samples.Infrastructure.Factories
 {

@@ -43,9 +43,9 @@ namespace Eventus.Samples.Infrastructure.Factories
                 return init.InitAsync();
             }
 
-            private static DocumentClient Client => _client ?? (_client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["DocumentDb.Endpoint"]), ConfigurationManager.AppSettings["DocumentDb.AuthKey"], new ConnectionPolicy { EnableEndpointDiscovery = false }));
+            private static DocumentClient Client => _client ?? (_client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["DocumentDb.Endpoint"] ?? "https://localhost:8081/"), ConfigurationManager.AppSettings["DocumentDb.AuthKey"] ?? "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==", new ConnectionPolicy { EnableEndpointDiscovery = false }));
 
-            private static readonly string DatabaseId = ConfigurationManager.AppSettings["DocumentDb.DatabaseId"];
+            private static readonly string DatabaseId = ConfigurationManager.AppSettings["DocumentDb.DatabaseId"] ?? "Eventus";
         }
     }
 }
